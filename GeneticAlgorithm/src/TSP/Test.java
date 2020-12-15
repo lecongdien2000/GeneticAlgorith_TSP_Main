@@ -30,7 +30,7 @@ public class Test {
 		int populationSize = 3000;
 		double mutateRatio = 0.01;
 		int limit = 30; //note
-		String path = "D:\\LearningAtHome\\GeneticAlgorithm.xlsx";
+		String path = "TSP_Result.xlsx";
 		Environment environment = new Environment(map, populationSize, mutateRatio, path);
 		environment.generate();
 		environment.draw(limit);

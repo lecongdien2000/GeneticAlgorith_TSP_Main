@@ -36,11 +36,10 @@ public class Environment {
 			// Calculate a fitness of each element
 			this.calFitness();
 			for (int i = 0; i < populationSize; i++) {
-				wete.setOrdinary(i);
-				wete.setPath(population.get(i).toString());
-				wete.setCost(population.get(i).getPathCost(map));
-				wete.write();
-//				System.out.println(population.get(i).toString(map));
+//				wete.setOrdinary(i);
+//				wete.setPath(population.get(i).toString());
+//				wete.setCost(population.get(i).getPathCost(map));
+//				wete.write();
 				// Pick two parents with probability using fitness
 				ADN parentA = this.randomPick();
 				ADN parentB = this.randomPick();
@@ -50,7 +49,6 @@ public class Environment {
 				child.mutate(mutateRatio);
 				// Add new child into new population
 				newPopulation.add(child);
-//				System.out.println("Generation: " + loop);
 			}
 			// Replace old population with new population
 			population = newPopulation;
