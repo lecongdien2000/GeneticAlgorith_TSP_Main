@@ -27,10 +27,10 @@ public class Test {
 		map.setPath(4, 5, 20);
 		map.setPath(4, 6, 8);
 		map.setPath(5, 6, 13);
-		int populationSize = 3000;
+		int populationSize = 300;
 		double mutateRatio = 0.01;
 		int limit = 30; //note
-		String path = "TSP_Result.xlsx";
+		String path = "../TSP_Result.xlsx";
 		Environment environment = new Environment(map, populationSize, mutateRatio, path);
 		environment.generate();
 		environment.draw(limit);

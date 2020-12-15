@@ -22,7 +22,7 @@ public class WriteEnvironmentToExcel {
 	private double cost;
 
 	public WriteEnvironmentToExcel(String path) throws IOException {
-		File file = new File("dataset");
+		File file = new File("../dataset");
 		if (!file.isDirectory())
 			return;
 		fos = new FileOutputStream(path);
@@ -34,7 +34,7 @@ public class WriteEnvironmentToExcel {
 		int i = 1;
 		for (File child : file.listFiles()) {
 			cell = row.createCell(i);
-			cell.setCellValue(child.getName());
+			cell.setCellValue(child.getName().substring(0, child.getName().length() - 4));
 			i++;
 		}
 	}
