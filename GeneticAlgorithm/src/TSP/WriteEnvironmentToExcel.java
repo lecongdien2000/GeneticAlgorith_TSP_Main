@@ -3,6 +3,8 @@ package TSP;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -20,8 +22,11 @@ public class WriteEnvironmentToExcel {
 	private int ordinary;
 	private String path;
 	private double cost;
+	
+	private HashMap<Integer, String> columns;
 
 	public WriteEnvironmentToExcel(String path) throws IOException {
+		columns = new HashMap<Integer, String>();
 		File file = new File("../dataset");
 		if (!file.isDirectory())
 			return;
@@ -34,21 +39,19 @@ public class WriteEnvironmentToExcel {
 		int i = 1;
 		for (File child : file.listFiles()) {
 			cell = row.createCell(i);
-			cell.setCellValue(child.getName().substring(0, child.getName().length() - 4));
+			String name = child.getName().substring(0, child.getName().length() - 4);
+			columns.put(i, name);
+			cell.setCellValue(name);
 			i++;
 		}
 	}
 
-	public void write() throws IOException {
+	public void write(double value) throws IOException {
 		Row row = sheet.createRow(nextRow());
 		Cell cell = row.createCell(0);
 		cell.setCellValue(generation);
 		cell = row.createCell(1);
-		cell.setCellValue(ordinary);
-		cell = row.createCell(2);
-		cell.setCellValue(path);
-		cell = row.createCell(3);
-		cell.setCellValue(cost);
+		cell.setCellValue(value);
 	}
 
 	private int nextRow() {

@@ -30,12 +30,15 @@ public class Environment {
 	}
 
 	public void draw(int limit) throws IOException {
+		
 		for (int loop = 0; loop < limit; loop++) {
+			ADN best = population.get(0);
 			wete.setGeneration(loop);
 			List<ADN> newPopulation = new ArrayList<ADN>();
 			// Calculate a fitness of each element
 			this.calFitness();
 			for (int i = 0; i < populationSize; i++) {
+				if(best.getPathCost(map) > population.get(i).getPathCost(map)) best = population.get(i);
 //				wete.setOrdinary(i);
 //				wete.setPath(population.get(i).toString());
 //				wete.setCost(population.get(i).getPathCost(map));
@@ -52,6 +55,8 @@ public class Environment {
 			}
 			// Replace old population with new population
 			population = newPopulation;
+			//Write best choice to excel
+			wete.write(best.getPathCost(map));
 		}
 		wete.close();
 	}
