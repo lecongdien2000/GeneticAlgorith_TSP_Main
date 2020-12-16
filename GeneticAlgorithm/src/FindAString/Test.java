@@ -11,6 +11,9 @@ public class Test {
 		Environment environment = new Environment(goal, populationSize, mutateRatio);
 		environment.generate();
 		environment.draw(limit);
+		
+		
+		//aaaa
 	}
 
 }
