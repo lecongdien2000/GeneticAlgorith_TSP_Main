@@ -3,8 +3,6 @@ package TSP;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 public class Environment {
 
@@ -13,6 +11,7 @@ public class Environment {
 	private int populationSize;
 	private double mutateRatio;
 	private WriteEnvironmentToExcel wete;
+
 	public Environment(Map map, int populationSize, double mutateRatio, String path) throws IOException {
 		this.populationSize = populationSize;
 		this.mutateRatio = mutateRatio;
@@ -60,13 +59,14 @@ public class Environment {
 
 	private ADN randomPick() {
 		double total = 0;
-		for(ADN adn: population) {
+		for (ADN adn : population) {
 			total += adn.getFitness();
 		}
 		double rdNum = Math.random();
-		for(ADN adn: population) {
-			rdNum -= adn.getFitness()/total;
-			if(rdNum < 0) return adn;
+		for (ADN adn : population) {
+			rdNum -= adn.getFitness() / total;
+			if (rdNum < 0)
+				return adn;
 		}
 		return null;
 	}
