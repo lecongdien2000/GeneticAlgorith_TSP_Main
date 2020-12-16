@@ -41,10 +41,6 @@ public class Environment {
 			this.calFitness();
 			for (int i = 0; i < populationSize; i++) {
 				if(best.getPathCost(map) > population.get(i).getPathCost(map)) best = population.get(i);
-//				wete.setOrdinary(i);
-//				wete.setPath(population.get(i).toString());
-//				wete.setCost(population.get(i).getPathCost(map));
-//				wete.write();
 				// Pick two parents with probability using fitness
 				ADN parentA = this.randomPick();
 				ADN parentB = this.randomPick();
