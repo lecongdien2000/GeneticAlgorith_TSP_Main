@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Map {
 	private double[][] map;
@@ -35,13 +37,22 @@ public class Map {
 		do {
 			str = bf.readLine();
 		} while (!str.equals("NODE_COORD_SECTION"));
-		// List<Point> list
-		// while(str!=EOF)
-		// str = readLine()
-		// strArr = split(str, " ");
-		// list.addX(toDouble(strArr[1]))
-		// list.addY(toDouble(strArr[2]));
-
+		List<Point> list = new ArrayList<Point>();
+		while (true) {
+			str = bf.readLine();
+			if (str.equals("EOF"))
+				break;
+			String[] strArr = str.trim().split("\\s+");
+			list.add(new Point(Double.parseDouble(strArr[1]), Double.parseDouble(strArr[2])));
+		}
+		map = new double[list.size()][list.size()];
+		for (int i = 0; i < list.size() - 1; i++) {
+			for (int j = i + 1; j < list.size(); j++) {
+				map[i][j] = list.get(i).distance(list.get(j));
+				map[j][i] = map[i][j];
+			}
+		}
+		System.out.println(map);
 		// new Map(list.size)
 		// for(i = 0 to list.size - 1)
 		// for(j = i + 1 to list.size - 1)

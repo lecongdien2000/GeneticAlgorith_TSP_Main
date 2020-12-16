@@ -59,8 +59,8 @@ public class Environment {
 			//So sanh (dk dung)
 			if(preBest!=null && Math.abs(preBest.getPathCost(map) - best.getPathCost(map)) < nearNum) break;
 			preBest = best;
+			
 		}
-		wete.close();
 	}
 
 	private ADN randomPick() {
