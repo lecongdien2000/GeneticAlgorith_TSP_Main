@@ -11,7 +11,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.streaming.SXSSFSheet;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
+//This class can write each row by title (column)
 public class WriteEnvironmentToExcel {
 	private FileOutputStream fos;
 	private SXSSFWorkbook workbook;
@@ -44,6 +44,8 @@ public class WriteEnvironmentToExcel {
 			cell.setCellValue(name);
 			i++;
 		}
+		
+		
 	}
 
 	public void write(double value) throws IOException {
@@ -95,6 +97,16 @@ public class WriteEnvironmentToExcel {
 
 	public int getGeneration() {
 		return generation;
+	}
+
+	public void writeTitle(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void write(double pathCost, String title) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

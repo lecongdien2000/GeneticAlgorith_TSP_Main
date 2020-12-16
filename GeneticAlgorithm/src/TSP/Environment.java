@@ -13,12 +13,14 @@ public class Environment {
 	private int populationSize;
 	private double mutateRatio;
 	private WriteEnvironmentToExcel wete;
+	private String title;
 	
-	public Environment(Map map, int populationSize, double mutateRatio, String path) throws IOException {
+	public Environment(Map map, int populationSize, double mutateRatio, WriteEnvironmentToExcel wete, String title) throws IOException {
 		this.populationSize = populationSize;
 		this.mutateRatio = mutateRatio;
 		this.map = map;
-		wete = new WriteEnvironmentToExcel(path);
+		this.wete = wete;
+		this.title = title;
 	}
 
 	// Initialize population with n element
@@ -27,6 +29,7 @@ public class Environment {
 		for (int i = 0; i < populationSize; i++) {
 			population.add(ADN.randomCreate(map.size()));
 		}
+
 	}
 
 	public void draw(int limit) throws IOException {
@@ -56,7 +59,7 @@ public class Environment {
 			// Replace old population with new population
 			population = newPopulation;
 			//Write best choice to excel
-			wete.write(best.getPathCost(map));
+			wete.write(best.getPathCost(map), title);
 		}
 		wete.close();
 	}
