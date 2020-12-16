@@ -27,7 +27,7 @@ public class WriteEnvironmentToExcel {
 
 	public WriteEnvironmentToExcel(String path) throws IOException {
 		columns = new HashMap<Integer, String>();
-		File file = new File("../dataset");
+		File file = new File("dataset");
 		if (!file.isDirectory())
 			return;
 		fos = new FileOutputStream(path);
