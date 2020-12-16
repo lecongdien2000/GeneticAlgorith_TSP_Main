@@ -16,13 +16,15 @@ public class WriteEnvironmentToExcel {
 	private FileOutputStream fos;
 	private SXSSFWorkbook workbook;
 	private SXSSFSheet sheet;
-	private int current = -1;
-
-
+	private int currentRow = -1;
+	private String path;
+	private int currentColumn = -1;
 	private HashMap<String, Integer> columns;
 
 	public WriteEnvironmentToExcel(String path) throws IOException {
-		//TODO
+		workbook = new SXSSFWorkbook();
+		this.path = path;
+		sheet = workbook.createSheet("Genetic Algorithm");
 	}
 
 	public void write(double value) throws IOException {
@@ -30,10 +32,15 @@ public class WriteEnvironmentToExcel {
 	}
 
 	private int nextRow() {
-		current++;
-		return current;
+		currentRow++;
+		return currentRow;
 	}
 
+	private int nextColumn() {
+		currentColumn++;
+		return currentColumn;
+	}
+	
 	public void close() throws IOException {
 		workbook.write(fos);
 		workbook.close();
@@ -41,8 +48,9 @@ public class WriteEnvironmentToExcel {
 	}
 
 	public void writeTitle(String name) {
-		// TODO Auto-generated method stub
-		
+		Row row = sheet.getRow(0);
+		Cell cell = row.getCell(nextColumn());
+		cell.setCellValue(name);
 	}
 
 	public void write(double pathCost, String title) {

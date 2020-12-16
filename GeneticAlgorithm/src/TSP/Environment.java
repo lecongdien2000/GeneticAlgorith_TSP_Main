@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Environment {
-
+	private final double nearNum = 0.01;
+	
+	
 	private List<ADN> population;
 	private Map map;
 	private int populationSize;
@@ -28,7 +30,6 @@ public class Environment {
 		for (int i = 0; i < populationSize; i++) {
 			population.add(ADN.randomCreate(map.size()));
 		}
-
 	}
 
 	public void draw(int limit) throws IOException {
@@ -56,7 +57,7 @@ public class Environment {
 			// Write best choice to excel
 			wete.write(best.getPathCost(map), title);
 			//So sanh (dk dung)
-			if(preBest!=null && Math.abs(preBest.getPathCost(map) - best.getPathCost(map)) < 0.01) break;
+			if(preBest!=null && Math.abs(preBest.getPathCost(map) - best.getPathCost(map)) < nearNum) break;
 			preBest = best;
 		}
 		wete.close();
