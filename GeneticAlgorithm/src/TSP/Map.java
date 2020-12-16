@@ -1,6 +1,11 @@
 package TSP;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Map {
 	private double[][] map;
@@ -24,9 +29,24 @@ public class Map {
 		return map.length;
 	}
 
-	public void readTest(File file) {
-		// TODO Auto-generated method stub
+	public void readTest(File file) throws IOException {
+		BufferedReader bf = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+		String str;
+		do {
+			str = bf.readLine();
+		} while (!str.equals("NODE_COORD_SECTION"));
+		//List<Point> list
+		//while(str!=EOF)
+			//str = readLine()
+			//strArr = split(str, " ");
+			//list.addX(toDouble(strArr[1]))
+			//list.addY(toDouble(strArr[2]));
 		
+		//new Map(list.size)
+		//for(i = 0 to list.size - 1)
+			//for(j = i + 1 to list.size - 1)
+				//map[i,j] = distance(list[i], list[j])
+				//map[j,i] = map[i,j]
 	}
 	
 	
