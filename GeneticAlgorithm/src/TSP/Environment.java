@@ -3,8 +3,6 @@ package TSP;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 public class Environment {
 
@@ -14,8 +12,9 @@ public class Environment {
 	private double mutateRatio;
 	private WriteEnvironmentToExcel wete;
 	private String title;
-	
-	public Environment(Map map, int populationSize, double mutateRatio, WriteEnvironmentToExcel wete, String title) throws IOException {
+
+	public Environment(Map map, int populationSize, double mutateRatio, WriteEnvironmentToExcel wete, String title)
+			throws IOException {
 		this.populationSize = populationSize;
 		this.mutateRatio = mutateRatio;
 		this.map = map;
@@ -33,14 +32,15 @@ public class Environment {
 	}
 
 	public void draw(int limit) throws IOException {
-		
+
 		for (int loop = 0; loop < limit; loop++) {
 			ADN best = population.get(0);
 			List<ADN> newPopulation = new ArrayList<ADN>();
 			// Calculate a fitness of each element
 			this.calFitness();
 			for (int i = 0; i < populationSize; i++) {
-				if(best.getPathCost(map) > population.get(i).getPathCost(map)) best = population.get(i);
+				if (best.getPathCost(map) > population.get(i).getPathCost(map))
+					best = population.get(i);
 				// Pick two parents with probability using fitness
 				ADN parentA = this.randomPick();
 				ADN parentB = this.randomPick();
@@ -53,7 +53,7 @@ public class Environment {
 			}
 			// Replace old population with new population
 			population = newPopulation;
-			//Write best choice to excel
+			// Write best choice to excel
 			wete.write(best.getPathCost(map), title);
 		}
 		wete.close();
@@ -61,13 +61,14 @@ public class Environment {
 
 	private ADN randomPick() {
 		double total = 0;
-		for(ADN adn: population) {
+		for (ADN adn : population) {
 			total += adn.getFitness();
 		}
 		double rdNum = Math.random();
-		for(ADN adn: population) {
-			rdNum -= adn.getFitness()/total;
-			if(rdNum < 0) return adn;
+		for (ADN adn : population) {
+			rdNum -= adn.getFitness() / total;
+			if (rdNum < 0)
+				return adn;
 		}
 		return null;
 	}
