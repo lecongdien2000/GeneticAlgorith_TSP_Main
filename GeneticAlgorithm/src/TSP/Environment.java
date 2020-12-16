@@ -32,8 +32,8 @@ public class Environment {
 	}
 
 	public void draw(int limit) throws IOException {
-
-		for (int loop = 0; loop < limit; loop++) {
+		ADN preBest = null;
+		while(true) {
 			ADN best = population.get(0);
 			List<ADN> newPopulation = new ArrayList<ADN>();
 			// Calculate a fitness of each element
@@ -50,11 +50,14 @@ public class Environment {
 				child.mutate(mutateRatio);
 				// Add new child into new population
 				newPopulation.add(child);
-			}
+			} 
 			// Replace old population with new population
 			population = newPopulation;
 			// Write best choice to excel
 			wete.write(best.getPathCost(map), title);
+			//So sanh (dk dung)
+			if(preBest!=null && Math.abs(preBest.getPathCost(map) - best.getPathCost(map)) < 0.01) break;
+			preBest = best;
 		}
 		wete.close();
 	}
