@@ -1,5 +1,9 @@
 package TSP;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
 public class Map {
 	private double[][] map;
 	
@@ -19,5 +23,16 @@ public class Map {
 		return map.length;
 	}
 	
+	public int[][] readData() throws FileNotFoundException{
+		File dataSet = new File("dataset");
+		if (dataSet.isDirectory()) {
+			FileOutputStream fos = new FileOutputStream(dataSet);
+			for (File child: dataSet.listFiles()) {
+				
+			}
+		}
+		
+		return null;
+	}
 	
 }

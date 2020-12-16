@@ -14,7 +14,7 @@ public class ADN {
 	public ADN(int[] genes) {
 		this.genes = genes;
 	}
-
+	
 	//Create an ADN with random characters
 	public static ADN randomCreate(int n) {
 		int[] genes = new int[n];
@@ -32,13 +32,14 @@ public class ADN {
 		}
 		return new ADN(genes);
 	}
+	
 	public int size() {
 		return this.genes.length;
 	}
+	
 	public void calFitness(Map map) {
 		this.fitness = Math.pow(100/getPathCost(map), 4);
 	}
-	
 	
 	public double getPathCost(Map map) {
 		double pathCost = 0;
@@ -47,6 +48,7 @@ public class ADN {
 		}
 		return pathCost;
 	}
+	
 	public ADN crossover(ADN that) {
 		int[] childGenes = new int[genes.length];
 		Arrays.fill(childGenes, -1);
@@ -92,15 +94,17 @@ public class ADN {
 				childGenes[i] = remainList.poll();
 			}
 		}
-		
 		return new ADN(childGenes);
 	}
+	
 	public int[] getGenes() {
 		return genes;
 	}
+	
 	public double getFitness() {
 		return fitness;
 	}
+	
 	//note
 	public void mutate(double mutateRatio) {
 		Random rd = new Random();

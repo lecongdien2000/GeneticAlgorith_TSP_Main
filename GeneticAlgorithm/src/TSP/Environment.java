@@ -13,6 +13,7 @@ public class Environment {
 	private int populationSize;
 	private double mutateRatio;
 	private WriteEnvironmentToExcel wete;
+	
 	public Environment(Map map, int populationSize, double mutateRatio, String path) throws IOException {
 		this.populationSize = populationSize;
 		this.mutateRatio = mutateRatio;
@@ -26,7 +27,6 @@ public class Environment {
 		for (int i = 0; i < populationSize; i++) {
 			population.add(ADN.randomCreate(map.size()));
 		}
-
 	}
 
 	public void draw(int limit) throws IOException {
