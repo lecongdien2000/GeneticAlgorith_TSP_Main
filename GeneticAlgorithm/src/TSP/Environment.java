@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Environment {
-
+	private final double nearNum = 0.01;
+	
+	
 	private List<ADN> population;
 	private Map map;
 	private int populationSize;
@@ -28,12 +30,11 @@ public class Environment {
 		for (int i = 0; i < populationSize; i++) {
 			population.add(ADN.randomCreate(map.size()));
 		}
-
 	}
 
 	public void draw(int limit) throws IOException {
-
-		for (int loop = 0; loop < limit; loop++) {
+		ADN preBest = null;
+		while(true) {
 			ADN best = population.get(0);
 			List<ADN> newPopulation = new ArrayList<ADN>();
 			// Calculate a fitness of each element
@@ -50,13 +51,16 @@ public class Environment {
 				child.mutate(mutateRatio);
 				// Add new child into new population
 				newPopulation.add(child);
-			}
+			} 
 			// Replace old population with new population
 			population = newPopulation;
 			// Write best choice to excel
 			wete.write(best.getPathCost(map), title);
+			//So sanh (dk dung)
+			if(preBest!=null && Math.abs(preBest.getPathCost(map) - best.getPathCost(map)) < nearNum) break;
+			preBest = best;
+			
 		}
-		wete.close();
 	}
 
 	private ADN randomPick() {

@@ -125,8 +125,7 @@ public class ADN {
 				p2 = tmp;
 			}
 
-			for (int i = p1; i < ((p2 - p1 + 1) / 2) + p1; i++) {
-				System.out.println((p2 - p1 + 1) / 2);
+			for (int i = p1; i < (p2 + p1 + 1) / 2; i++) {
 				int temp = genes[i];
 				genes[i] = genes[p2 - (i - p1)];
 				genes[p2 - (i - p1)] = temp;

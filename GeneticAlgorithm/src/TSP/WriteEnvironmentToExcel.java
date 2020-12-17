@@ -13,16 +13,19 @@ import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 //This class can write each row by title (column)
 public class WriteEnvironmentToExcel {
-	private FileOutputStream fos;
 	private SXSSFWorkbook workbook;
 	private SXSSFSheet sheet;
-	private int current = -1;
-
-
+	private int currentRow = -1;
+	private String path;
+	private int currentColumn = -1;
 	private HashMap<String, Integer> columns;
 
 	public WriteEnvironmentToExcel(String path) throws IOException {
-		//TODO
+		workbook = new SXSSFWorkbook();
+		this.path = path;
+		sheet = workbook.createSheet("Genetic Algorithm");
+		columns = new HashMap<String, Integer>();
+		nextRow();
 	}
 
 	public void write(double value) throws IOException {
@@ -30,24 +33,41 @@ public class WriteEnvironmentToExcel {
 	}
 
 	private int nextRow() {
-		current++;
-		return current;
+		currentRow++;
+		return currentRow;
 	}
 
+	private int nextColumn() {
+		currentColumn++;
+		return currentColumn;
+	}
+	
+	public void resetRow() {
+		currentRow = 0;
+	}
+	
 	public void close() throws IOException {
+		FileOutputStream fos = new FileOutputStream(path);
 		workbook.write(fos);
 		workbook.close();
 		fos.close();
 	}
 
 	public void writeTitle(String name) {
-		// TODO Auto-generated method stub
-		
+		Row row;
+		if((row = sheet.getRow(currentRow))==null) 
+			row = sheet.createRow(currentRow);
+		Cell cell = row.createCell(nextColumn());
+		cell.setCellValue(name);
+		columns.put(name, currentColumn);
 	}
 
 	public void write(double pathCost, String title) {
-		// TODO Auto-generated method stub
-		
+		Row row;
+		if((row = sheet.getRow(nextRow()))==null) 
+			row = sheet.createRow(currentRow);
+		Cell cell = row.createCell(columns.get(title));
+		cell.setCellValue(pathCost);
 	}
 
 }

@@ -28,7 +28,10 @@ public class Test {
 			Environment environment = new Environment(map, populationSize, mutateRatio, wete, name);
 			environment.generate();
 			environment.draw(limit);
+			wete.resetRow();
+			System.out.println();
 		}
+		wete.close();
 		
 		
 		
