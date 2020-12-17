@@ -6,9 +6,9 @@ import java.io.IOException;
 public class Test {
 	private static String dataPath = "dataset";
 	private static String resultPath = "../TSP_Result.xlsx";
-	private static int populationSize = 300;
-	private static double mutateRatio = 0.01;
-	private static int limit = 30;
+	private static int populationSize = 4000;
+	private static double mutateRatio = 0.02;
+	private static int limit = 99;
 	public static void main(String[] args) throws IOException {
 		//folder = new File
 		//if(folder is not Directory) return
@@ -25,11 +25,13 @@ public class Test {
 			String name = file.getName().substring(0, file.getName().length() - 4);
 			wete.writeTitle(name);
 			map.readTest(file);
+			long time = System.currentTimeMillis();
+			System.out.println("Running data:" + name + "...");
 			Environment environment = new Environment(map, populationSize, mutateRatio, wete, name);
 			environment.generate();
 			environment.draw(limit);
 			wete.resetRow();
-			System.out.println();
+			System.out.println("Complete! " + (System.currentTimeMillis() - time)/1000 + " sec");
 		}
 		wete.close();
 		

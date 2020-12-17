@@ -46,6 +46,7 @@ public class ADN {
 		for (int i = 1; i < genes.length; i++) {
 			pathCost += map.getPath(genes[i - 1], genes[i]);
 		}
+		pathCost+=map.getPath(genes[genes.length - 1], genes[0]);
 		return pathCost;
 	}
 

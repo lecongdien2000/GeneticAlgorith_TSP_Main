@@ -26,11 +26,12 @@ public class WriteEnvironmentToExcel {
 		sheet = workbook.createSheet("Genetic Algorithm");
 		columns = new HashMap<String, Integer>();
 		nextRow();
+		
+		
+		
 	}
 
-	public void write(double value) throws IOException {
-		//TODO
-	}
+
 
 	private int nextRow() {
 		currentRow++;
