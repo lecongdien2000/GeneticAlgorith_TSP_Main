@@ -6,9 +6,9 @@ import java.io.IOException;
 public class Test {
 	private static String dataPath = "dataset";
 	private static String resultPath = "../TSP_Result.xlsx";
-	private static int populationSize = 4000;
-	private static double mutateRatio = 0.02;
-	private static int limit = 99;
+	private static int populationSize = 3000;
+	private static double mutateRatio = 0.1;
+	private static int limit = 300;
 	public static void main(String[] args) throws IOException {
 		//folder = new File
 		//if(folder is not Directory) return

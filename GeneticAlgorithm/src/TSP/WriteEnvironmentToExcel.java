@@ -1,34 +1,27 @@
 package TSP;
 
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.streaming.SXSSFSheet;
-import org.apache.poi.xssf.streaming.SXSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 //This class can write each row by title (column)
 public class WriteEnvironmentToExcel {
-	private SXSSFWorkbook workbook;
-	private SXSSFSheet sheet;
-	private int currentRow = -1;
+	private XSSFWorkbook workbook;
+	private XSSFSheet sheet;
+	private int currentRow = 0;
 	private String path;
 	private int currentColumn = -1;
 	private HashMap<String, Integer> columns;
 
 	public WriteEnvironmentToExcel(String path) throws IOException {
-		workbook = new SXSSFWorkbook();
+		workbook = new XSSFWorkbook();
 		this.path = path;
 		sheet = workbook.createSheet("Genetic Algorithm");
 		columns = new HashMap<String, Integer>();
-		nextRow();
-		
-		
-		
 	}
 
 

@@ -38,7 +38,7 @@ public class ADN {
 	}
 
 	public void calFitness(Map map) {
-		this.fitness = Math.pow(100 / getPathCost(map), 4);
+		this.fitness = Math.pow(100D / getPathCost(map), 10);
 	}
 
 	public double getPathCost(Map map) {

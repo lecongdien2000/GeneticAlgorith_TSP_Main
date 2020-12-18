@@ -52,7 +52,6 @@ public class Map {
 				map[j][i] = map[i][j];
 			}
 		}
-		System.out.println(map);
 		// new Map(list.size)
 		// for(i = 0 to list.size - 1)
 		// for(j = i + 1 to list.size - 1)
