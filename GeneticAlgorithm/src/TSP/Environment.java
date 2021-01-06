@@ -64,31 +64,34 @@ public class Environment {
 	}
 
 	public void draw(int limit) throws IOException {
+		ADN best = null;
 		for(int loop = 0; loop < limit; loop++) {
-			ADN best = population.get(0);
+			best = population.get(0);
 			List<ADN> newPopulation = new ArrayList<ADN>();
 			// Calculate a fitness of each element
 			this.calFitness();
 			for (int i = 0; i < populationSize; i++) {
-				if (best.getPathCost(map) > population.get(i).getPathCost(map))
-					best = population.get(i);
 				// Pick two parents with probability using fitness
 				ADN parentA = this.randomPick();
 				ADN parentB = this.randomPick();
 				// Crossover
 				ADN child = parentA.crossover(parentB);
+				//compare to best
+				if (best.getPathCost(map) > child.getPathCost(map))
+					best = child;
 				// Mutation by a rarely percent
 				child.mutate(mutateRatio);
 				// Add new child into new population
 				newPopulation.add(child);
 			} 
 			// Replace old population with new population
-			population = newPopulation;
-			// Write best choice to excel
-			wete.write(best.getPathCost(map), title);
-			
+			population = newPopulation;			
 		}
+		// Write best choice to excel
+		wete.write(best.getPathCost(map), title);
+
 	}
+	
 	
 	private ADN randomPick() {
 		double total = 0;

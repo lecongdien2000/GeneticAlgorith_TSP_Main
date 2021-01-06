@@ -25,7 +25,6 @@ public class WriteEnvironmentToExcel {
 	}
 
 
-
 	private int nextRow() {
 		currentRow++;
 		return currentRow;
