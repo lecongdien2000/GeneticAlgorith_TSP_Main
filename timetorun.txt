@@ -19,6 +19,7 @@ Running data:a280...
 - Complete 18th ! Time = 50 sec
 - Complete 19th ! Time = 68 sec
 - Complete 20th ! Time = 51 sec
+Time cost: 1389 sec = 23.15 min
 Running data:ch130...
 - Complete 1th ! Time = 38 sec
 - Complete 2th ! Time = 37 sec
@@ -40,6 +41,7 @@ Running data:ch130...
 - Complete 18th ! Time = 40 sec
 - Complete 19th ! Time = 38 sec
 - Complete 20th ! Time = 45 sec
+Time cost: 831 sec = 13.85 min
 Running data:ch150...
 - Complete 1th ! Time = 55 sec
 - Complete 2th ! Time = 52 sec
@@ -61,6 +63,7 @@ Running data:ch150...
 - Complete 18th ! Time = 40 sec
 - Complete 19th ! Time = 40 sec
 - Complete 20th ! Time = 41 sec
+Time cost: 896 sec ~= 14.933 min
 Running data:eil51...
 - Complete 1th ! Time = 18 sec
 - Complete 2th ! Time = 17 sec
@@ -82,3 +85,6 @@ Running data:eil51...
 - Complete 18th ! Time = 17 sec
 - Complete 19th ! Time = 18 sec
 - Complete 20th ! Time = 17 sec
+Time cost: 346 sec ~= 5.777 min
+===================
+Total time cost: 3462s = 57.7 min
