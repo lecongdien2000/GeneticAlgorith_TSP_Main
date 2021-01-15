@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Environment {
-	private final double nearNum = 0.001;
+
 	
 	
 	private List<ADN> population;
@@ -14,7 +14,7 @@ public class Environment {
 	private double mutateRatio;
 	private WriteEnvironmentToExcel wete;
 	private String title;
-
+	private int timesNear = 0;
 	public Environment(Map map, int populationSize, double mutateRatio, WriteEnvironmentToExcel wete, String title)
 			throws IOException {
 		this.populationSize = populationSize;
@@ -32,7 +32,7 @@ public class Environment {
 		}
 	}
 
-	public void draw() throws IOException {
+	public void draw(double nearNum, int timesNearLimit) throws IOException {
 		ADN preBest = null;
 		while(true) {
 			ADN best = population.get(0);
@@ -54,13 +54,19 @@ public class Environment {
 			} 
 			// Replace old population with new population
 			population = newPopulation;
-			// Write best choice to excel
-			wete.write(best.getPathCost(map), title);
 			//So sanh (dk dung)
-			if(preBest!=null && Math.abs(preBest.getPathCost(map) - best.getPathCost(map)) < nearNum) break;
+			double delta = 0;
+			if(preBest!=null)
+				delta = best.getPathCost(map) - preBest.getPathCost(map);
+			if(preBest!=null && (delta >= 0 || Math.abs(delta) < timesNearLimit) ) {
+				timesNear++;
+				if(timesNear >= timesNearLimit) 
+					break;
+			} else timesNear = 0;
 			preBest = best;
-			
 		}
+		// Write best choice to excel
+		wete.write(preBest.getPathCost(map), title);
 	}
 
 	public void draw(int limit) throws IOException {

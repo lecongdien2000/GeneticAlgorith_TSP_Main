@@ -1,0 +1,89 @@
+Running data:a280...
+- Complete 1th ! Time = 17 sec
+- Complete 2th ! Time = 20 sec
+- Complete 3th ! Time = 15 sec
+- Complete 4th ! Time = 19 sec
+- Complete 5th ! Time = 17 sec
+- Complete 6th ! Time = 31 sec
+- Complete 7th ! Time = 23 sec
+- Complete 8th ! Time = 17 sec
+- Complete 9th ! Time = 35 sec
+- Complete 10th ! Time = 31 sec
+- Complete 11th ! Time = 23 sec
+- Complete 12th ! Time = 51 sec
+- Complete 13th ! Time = 32 sec
+- Complete 14th ! Time = 35 sec
+- Complete 15th ! Time = 24 sec
+- Complete 16th ! Time = 57 sec
+- Complete 17th ! Time = 35 sec
+- Complete 18th ! Time = 20 sec
+- Complete 19th ! Time = 25 sec
+- Complete 20th ! Time = 42 sec
+Cost time of a280: 569 sec
+Running data:ch130...
+- Complete 1th ! Time = 158 sec
+- Complete 2th ! Time = 166 sec
+- Complete 3th ! Time = 772 sec
+- Complete 4th ! Time = 107 sec
+- Complete 5th ! Time = 86 sec
+- Complete 6th ! Time = 131 sec
+- Complete 7th ! Time = 163 sec
+- Complete 8th ! Time = 106 sec
+- Complete 9th ! Time = 70 sec
+- Complete 10th ! Time = 64 sec
+- Complete 11th ! Time = 84 sec
+- Complete 12th ! Time = 75 sec
+- Complete 13th ! Time = 64 sec
+- Complete 14th ! Time = 134 sec
+- Complete 15th ! Time = 112 sec
+- Complete 16th ! Time = 91 sec
+- Complete 17th ! Time = 74 sec
+- Complete 18th ! Time = 56 sec
+- Complete 19th ! Time = 253 sec
+- Complete 20th ! Time = 78 sec
+Cost time of ch130: 2844 sec
+Running data:ch150...
+- Complete 1th ! Time = 126 sec
+- Complete 2th ! Time = 121 sec
+- Complete 3th ! Time = 147 sec
+- Complete 4th ! Time = 111 sec
+- Complete 5th ! Time = 112 sec
+- Complete 6th ! Time = 113 sec
+- Complete 7th ! Time = 111 sec
+- Complete 8th ! Time = 111 sec
+- Complete 9th ! Time = 120 sec
+- Complete 10th ! Time = 122 sec
+- Complete 11th ! Time = 155 sec
+- Complete 12th ! Time = 162 sec
+- Complete 13th ! Time = 62 sec
+- Complete 14th ! Time = 829 sec
+- Complete 15th ! Time = 85 sec
+- Complete 16th ! Time = 334 sec
+- Complete 17th ! Time = 394 sec
+- Complete 18th ! Time = 112 sec
+- Complete 19th ! Time = 217 sec
+- Complete 20th ! Time = 138 sec
+Cost time of ch150: 3682 sec
+Running data:eil51...
+- Complete 1th ! Time = 4 sec
+- Complete 2th ! Time = 4 sec
+- Complete 3th ! Time = 4 sec
+- Complete 4th ! Time = 3 sec
+- Complete 5th ! Time = 3 sec
+- Complete 6th ! Time = 3 sec
+- Complete 7th ! Time = 3 sec
+- Complete 8th ! Time = 4 sec
+- Complete 9th ! Time = 3 sec
+- Complete 10th ! Time = 3 sec
+- Complete 11th ! Time = 4 sec
+- Complete 12th ! Time = 3 sec
+- Complete 13th ! Time = 4 sec
+- Complete 14th ! Time = 3 sec
+- Complete 15th ! Time = 3 sec
+- Complete 16th ! Time = 3 sec
+- Complete 17th ! Time = 4 sec
+- Complete 18th ! Time = 3 sec
+- Complete 19th ! Time = 4 sec
+- Complete 20th ! Time = 4 sec
+Cost time of eil51: 69 sec
+Total time: 7164
