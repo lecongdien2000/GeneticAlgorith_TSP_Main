@@ -5,9 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Environment {
-
-	
-	
 	private List<ADN> population;
 	private Map map;
 	private int populationSize;
