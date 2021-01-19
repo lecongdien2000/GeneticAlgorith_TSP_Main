@@ -66,34 +66,34 @@ public class Environment {
 		wete.write(preBest.getPathCost(map), title);
 	}
 
-	public void draw(int limit) throws IOException {
-		ADN best = null;
-		for(int loop = 0; loop < limit; loop++) {
-			best = population.get(0);
-			List<ADN> newPopulation = new ArrayList<ADN>();
-			// Calculate a fitness of each element
-			this.calFitness();
-			for (int i = 0; i < populationSize; i++) {
-				// Pick two parents with probability using fitness
-				ADN parentA = this.randomPick();
-				ADN parentB = this.randomPick();
-				// Crossover
-				ADN child = parentA.crossover(parentB);
-				//compare to best
-				if (best.getPathCost(map) > child.getPathCost(map))
-					best = child;
-				// Mutation by a rarely percent
-				child.mutate(mutateRatio);
-				// Add new child into new population
-				newPopulation.add(child);
-			} 
-			// Replace old population with new population
-			population = newPopulation;			
-		}
-		// Write best choice to excel
-		wete.write(best.getPathCost(map), title);
-
-	}
+//	public void draw(int limit) throws IOException {
+//		ADN best = null;
+//		for(int loop = 0; loop < limit; loop++) {
+//			best = population.get(0);
+//			List<ADN> newPopulation = new ArrayList<ADN>();
+//			// Calculate a fitness of each element
+//			this.calFitness();
+//			for (int i = 0; i < populationSize; i++) {
+//				// Pick two parents with probability using fitness
+//				ADN parentA = this.randomPick();
+//				ADN parentB = this.randomPick();
+//				// Crossover
+//				ADN child = parentA.crossover(parentB);
+//				//compare to best
+//				if (best.getPathCost(map) > child.getPathCost(map))
+//					best = child;
+//				// Mutation by a rarely percent
+//				child.mutate(mutateRatio);
+//				// Add new child into new population
+//				newPopulation.add(child);
+//			} 
+//			// Replace old population with new population
+//			population = newPopulation;			
+//		}
+//		// Write best choice to excel
+//		wete.write(best.getPathCost(map), title);
+//
+//	}
 	
 	
 	private ADN randomPick() {
